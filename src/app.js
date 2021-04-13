@@ -19,6 +19,12 @@ app.use(function(req, res, next) {
     res.status(404).json({"message": "Not found"});
 });
 
+<<<<<<< HEAD
 app.use(express.static('client/build'));
 
+=======
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
+>>>>>>> bcfd13ad18dba30f961389f69fe91f3e5a7e57eb
 module.exports = app;

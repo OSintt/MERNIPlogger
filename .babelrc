@@ -1,6 +1,7 @@
 {
 	"presets": [
 		"@babel/preset-env"
+<<<<<<< HEAD
 	], 
   
   "plugins": [
@@ -10,4 +11,7 @@
       }
     ]
   ]
+=======
+	]
+>>>>>>> bcfd13ad18dba30f961389f69fe91f3e5a7e57eb
 }
