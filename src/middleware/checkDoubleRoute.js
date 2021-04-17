@@ -51,21 +51,3 @@ export const checkDoubleRoute = async (req, res, next) => {
     res.status(404).json({"message": "the route does not exist"});
   }
 }
-
-/*export const createNewRoute = async (req, res, next) => {
-    const { routeName } = req.params.id;
-    const { image, author } = req.body;
-	const newRoute = await Route.findOne({routeName: routeName});
-    const token = req.headers['x-token-access'] === "ODI4MjM0NDQ3NjQ3MTQ2MDE0.YGmncA.LzBCOAKISrsxMt5V9FD3DVR7GmQ";
-	if (token){
-        if (!newRoute) return await updateClient({
-    		routeName: routeName,
-            image: image,
-            author: author
-    	});
-    }else{
-        res.status(401).json({"message": "forbidden"});
-    }
-
-	next()
-}*/
